@@ -76,30 +76,54 @@
     document.body.addEventListener('mouseenter', setMousePosition);
   }
 
-  function initGitHubWorks() {
-    const GITHUB_USER = 'ghostcoderraj';
+  function initCustomWorks() {
     const PER_PAGE = 6;
     const grid = document.getElementById('works-grid');
     const loadWrap = document.getElementById('works-load-wrap');
     const loadBtn = document.getElementById('works-load-more');
     if (!grid) return;
 
-    let allRepos = [];
+    // Custom deployed projects
+    const allRepos = [
+      {
+        name: 'CodeMasti',
+        category: 'Education Platform',
+        url: 'https://www.codemasti.com/',
+        desc: 'A coding education platform for school students (Class 5–10) with logic-first teaching and project-based learning.'
+      },
+      {
+        name: 'Upgradex Agency',
+        category: 'Digital Agency',
+        url: 'https://www.upgradexagency.in/',
+        desc: 'Helping businesses grow through modern digital solutions, branding, and high-converting web experiences.'
+      },
+      {
+        name: 'StockneX',
+        category: 'Fintech Venture',
+        url: '#',
+        desc: 'A soon-to-launch fintech venture offering smart financial products and tools.'
+      },
+      {
+        name: 'Ozak AI',
+        category: 'AI Product',
+        url: '#',
+        desc: 'Artificial intelligence pre-sales and business solution.'
+      }
+    ];
+
     let shown = 0;
 
     function formatTitle(name) {
-      return name.replace(/-/g, ' ').replace(/\b\w/g, function (c) { return c.toUpperCase(); });
+      return name;
     }
 
     function makeCard(repo) {
       const name = formatTitle(repo.name);
-      const category = repo.language || 'Code';
-      const url = repo.homepage && repo.homepage.startsWith('http') ? repo.homepage : repo.html_url;
+      const category = repo.category || 'Web Application';
+      const url = repo.url || '#';
       const initial = (repo.name[0] || 'C').toUpperCase();
-      const rawDesc = repo.description || '';
-      const fallbackDesc = 'A ' + (category === 'Code' ? 'software' : category) + ' project. View source or demo on GitHub.';
-      const descText = rawDesc.length > 0 ? rawDesc : fallbackDesc;
-      const desc = descText.length > 100 ? descText.slice(0, 97).trim() + '…' : descText;
+      const desc = repo.desc || 'A custom project built with modern web technologies.';
+      
       const card = document.createElement('a');
       card.className = 'work-card';
       card.href = url;
@@ -124,9 +148,6 @@
       div.textContent = s;
       return div.innerHTML;
     }
-    function escapeAttr(s) {
-      return String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-    }
 
     function renderNext() {
       const slice = allRepos.slice(shown, shown + PER_PAGE);
@@ -142,29 +163,9 @@
       }
     }
 
-    function showError() {
-      grid.setAttribute('aria-busy', 'false');
-      grid.innerHTML = '<p class="works-loading works-error">Could not load projects. <a href="https://github.com/' + GITHUB_USER + '?tab=repositories" target="_blank" rel="noopener noreferrer">View on GitHub</a></p>';
-    }
-
-    fetch('https://api.github.com/users/' + GITHUB_USER + '/repos?sort=updated&per_page=100')
-      .then(function (res) {
-        if (!res.ok) throw new Error('GitHub API error');
-        return res.json();
-      })
-      .then(function (repos) {
-        allRepos = repos.filter(function (r) { return !r.fork && r.name !== GITHUB_USER; });
-        if (allRepos.length === 0) {
-          grid.innerHTML = '<p class="works-loading">No public repositories yet. <a href="https://github.com/' + GITHUB_USER + '?tab=repositories" target="_blank" rel="noopener noreferrer">GitHub profile</a></p>';
-          grid.setAttribute('aria-busy', 'false');
-          return;
-        }
-        grid.innerHTML = '';
-        renderNext();
-      })
-      .catch(function () {
-        showError();
-      });
+    // Initial render
+    grid.innerHTML = '';
+    renderNext();
 
     if (loadBtn && loadWrap) {
       loadBtn.addEventListener('click', function () {
@@ -257,6 +258,6 @@
   initYear();
   initForm();
   initMouseLight();
-  initGitHubWorks();
+  initCustomWorks();
   initScrollAnimations();
 })();
