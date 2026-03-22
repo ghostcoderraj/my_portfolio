@@ -162,11 +162,11 @@
       card.innerHTML =
         '<div class="work-card-image"><img src="' + imageUrl + '" alt="' + escapeHtml(name) + ' thumbnail" loading="lazy" /></div>' +
         '<div class="work-card-meta">' +
-        '<div class="work-card-meta-row">' +
+        '<div class="work-card-meta-header">' +
         '<h3>' + escapeHtml(name) + '</h3>' +
-        '<span class="work-category">' + escapeHtml(category) + '</span>' +
         '<span class="work-link">↗</span>' +
         '</div>' +
+        '<span class="work-category">' + escapeHtml(category) + '</span>' +
         '<p class="work-card-desc">' + escapeHtml(desc) + '</p>' +
         '</div>';
       return card;
