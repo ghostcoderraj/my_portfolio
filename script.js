@@ -98,16 +98,45 @@
         desc: 'Helping businesses grow through modern digital solutions, branding, and high-converting web experiences.'
       },
       {
-        name: 'StockneX',
-        category: 'Fintech Venture',
-        url: '#',
-        desc: 'A soon-to-launch fintech venture offering smart financial products and tools.'
+        name: 'GLE5',
+        category: 'EMI Selling Platform',
+        url: 'https://www.gle5.com/',
+        desc: 'Join thousands of happy customers who own their dream products through our easy EMI plan.'
       },
       {
-        name: 'Ozak AI',
-        category: 'AI Product',
-        url: '#',
-        desc: 'Artificial intelligence pre-sales and business solution.'
+        name: 'Dazzle Lighting',
+        category: 'Lighting Company',
+        url: 'https://www.dazzlelighting.in/',
+        desc: 'Welcome to Dazzle Lighting Solutions — your trusted source for premium LED lighting solutions that combine style, performance, and efficiency.'
+      },
+      {
+        name: 'Shivshakti India Plywood',
+        category: 'Plywood Company',
+        url: 'https://www.shivshaktiindiaplywood.com/',
+        desc: 'Trusted by 500+ plywood manufacturers, saw mills, and wood processing industries. We deliver innovative, durable, and efficient woodworking machinery that maximizes your production capacity.'
+      },
+      {
+        name: 'Prisha Entertainment',
+        category: 'Electric Control Panel',
+        url: 'https://www.prishaent.com/',
+        desc: 'Delivering high-quality electrical control panels, automation solutions, and industrial electrical services tailored for diverse industrial needs across India.'
+      },
+      {
+        name: 'Akash Ladder',
+        category: 'Ladder Company',
+        url: 'https://www.akashladder.in/',
+        desc: 'Akash Ladder is India trusted manufacturer of high-quality ladders for industrial, commercial, and household use. Built for safety, designed for durability.'
+      },
+      {
+        name: 'Rivers Aviation Academy',
+        category: 'Aviation Company',
+        url: 'https://www.riversaviationacademy.co.in/',
+        desc: 'From Cabin Crew excellence to MBA in Aviation Management. We shape the future leaders of the global aviation industry.'
+      }, {
+        name: 'Maniik Enterprises',
+        category: 'Electric Control Panel',
+        url: 'https://www.maniikenterprises.com/',
+        desc: 'Reliable, cost-effective and professional IT, networking, web development, digital marketing, and facility management services for commercial & industrial clients.'
       }
     ];
 
@@ -121,9 +150,9 @@
       const name = formatTitle(repo.name);
       const category = repo.category || 'Web Application';
       const url = repo.url || '#';
-      const initial = (repo.name[0] || 'C').toUpperCase();
       const desc = repo.desc || 'A custom project built with modern web technologies.';
-      
+      const imageUrl = repo.image || 'https://picsum.photos/seed/' + name.replace(/\s+/g, '') + '/600/400';
+
       const card = document.createElement('a');
       card.className = 'work-card';
       card.href = url;
@@ -131,14 +160,14 @@
       card.rel = 'noopener noreferrer';
       card.setAttribute('aria-label', 'View project ' + name);
       card.innerHTML =
-        '<div class="work-card-image"><span class="work-card-initial">' + initial + '</span></div>' +
+        '<div class="work-card-image"><img src="' + imageUrl + '" alt="' + escapeHtml(name) + ' thumbnail" loading="lazy" /></div>' +
         '<div class="work-card-meta">' +
-          '<div class="work-card-meta-row">' +
-            '<h3>' + escapeHtml(name) + '</h3>' +
-            '<span class="work-category">' + escapeHtml(category) + '</span>' +
-            '<span class="work-link">↗</span>' +
-          '</div>' +
-          '<p class="work-card-desc">' + escapeHtml(desc) + '</p>' +
+        '<div class="work-card-meta-row">' +
+        '<h3>' + escapeHtml(name) + '</h3>' +
+        '<span class="work-category">' + escapeHtml(category) + '</span>' +
+        '<span class="work-link">↗</span>' +
+        '</div>' +
+        '<p class="work-card-desc">' + escapeHtml(desc) + '</p>' +
         '</div>';
       return card;
     }
