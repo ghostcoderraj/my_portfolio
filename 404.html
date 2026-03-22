@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 – Page Not Found | Aditya Raj</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .page-404 {
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 1.5rem;
+      text-align: center;
+    }
+
+    .page-404 .error-code {
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: clamp(6rem, 20vw, 12rem);
+      line-height: 1;
+      color: var(--text);
+      letter-spacing: -0.02em;
+      margin: 0 0 1rem;
+    }
+
+    .page-404 .error-msg {
+      font-size: 1rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin: 0 0 2rem;
+      max-width: 28ch;
+    }
+
+    .page-404 .btn {
+      margin-top: 0.5rem;
+    }
+  </style>
+</head>
+
+<body class="theme-dark">
+  <header class="site-header" role="banner">
+    <div class="header-inner container-wide">
+      <a href="index.html" class="logo" aria-label="Aditya Raj Home">ADITYA RAJ</a>
+      <nav class="nav" aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="index.html#about">ABOUT ME</a></li>
+          <li><a href="index.html#works">MY WORKS</a></li>
+          <li><a href="index.html#skills">SKILLS</a></li>
+          <li><a href="index.html#faq">FAQ</a></li>
+        </ul>
+        <a href="index.html#contact" class="btn btn-nav">CONTACT</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-404">
+    <h1 class="error-code" aria-hidden="true">404</h1>
+    <p class="error-msg">Sorry, the page you are looking for is not found.</p>
+    <a href="index.html" class="btn btn-primary">GO BACK TO HOME</a>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <p class="footer-cta">Get in Touch With Us</p>
+    <a href="mailto:officiallyaditya03@gmail.com" class="footer-email">OFFICIALLYADITYA03@GMAIL.COM</a>
+    <div class="footer-grid container-wide">
+      <div class="footer-col">
+        <span class="footer-brand">ADITYA RAJ</span>
+      </div>
+      <div class="footer-col">
+        <span>Available for remote work globally</span>
+        <span>+91 9153276992</span>
+      </div>
+      <div class="footer-col">
+        <a href="tel:+919153276992">+91 9153276992</a>
+        <div class="footer-socials">
+          <a href="mailto:officiallyaditya03@gmail.com" aria-label="Email">✉️</a>
+          <a href="https://www.linkedin.com/in/nstwithadityaraj" target="_blank" rel="noopener noreferrer"
+            aria-label="LinkedIn">in</a>
+          <a href="https://github.com/ghostcoderraj" target="_blank" rel="noopener noreferrer" aria-label="GitHub">⌘</a>
+          <a href="https://twitter.com/raj185227" target="_blank" rel="noopener noreferrer" aria-label="Twitter">𝕏</a>
+        </div>
+      </div>
+    </div>
+    <p class="footer-copy">&copy; <span id="year"></span> Aditya Raj. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+
+</html>
