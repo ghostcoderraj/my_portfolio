@@ -77,7 +77,7 @@
   }
 
   function initGitHubWorks() {
-    const GITHUB_USER = 'officialaditya12';
+    const GITHUB_USER = 'ghostcoderraj';
     const PER_PAGE = 6;
     const grid = document.getElementById('works-grid');
     const loadWrap = document.getElementById('works-load-wrap');
