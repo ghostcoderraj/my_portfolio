@@ -828,7 +828,7 @@ body.theme-dark {
 .works-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
+  gap: 2.5rem 1.5rem; /* Larger vertical gap to prevent any perceived overlap */
 }
 
 .work-card {
@@ -893,7 +893,7 @@ body.theme-dark {
 .work-card-meta {
   position: relative;
   z-index: 1;
-  padding: 1rem;
+  padding: 1.25rem;
   display: flex;
   flex-direction: column;
   flex-grow: 1;

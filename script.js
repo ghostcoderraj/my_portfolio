@@ -151,7 +151,15 @@
       const category = repo.category || 'Web Application';
       const url = repo.url || '#';
       const desc = repo.desc || 'A custom project built with modern web technologies.';
-      const imageUrl = repo.image || 'https://picsum.photos/seed/' + name.replace(/\s+/g, '') + '/600/400';
+      
+      let imageUrl = repo.image;
+      if (!imageUrl) {
+        if (url && url.startsWith('http')) {
+          imageUrl = 'https://s.wordpress.com/mshots/v1/' + encodeURIComponent(url) + '?w=600';
+        } else {
+          imageUrl = 'https://picsum.photos/seed/' + name.replace(/\s+/g, '') + '/600/400';
+        }
+      }
 
       const card = document.createElement('a');
       card.className = 'work-card';
